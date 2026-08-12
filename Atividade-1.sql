@@ -31,8 +31,8 @@ create table Personagem
     
     PRIMARY KEY (codFilme, codAtor),
     
-    FOREIGN KEY (codFilme) REFERENCES Filme(codFilme),
-    FOREIGN KEY (codAtor) REFERENCES Ator(codAtor)
+    FOREIGN KEY (codFilme) REFERENCES Filme(codFilme) on DELETE CASCADE on UPDATE CASCADE,
+    FOREIGN KEY (codAtor) REFERENCES Ator(codAtor) on DELETE CASCADE on UPDATE CASCADE
 );
 
 insert into Ator values
