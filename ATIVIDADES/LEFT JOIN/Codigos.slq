@@ -1,0 +1,61 @@
+3)
+USE mercado;
+
+SELECT
+    cliente.id_cliente,
+    cliente.nome,
+    cliente.idade,
+    loja.nome AS nome_loja,
+    loja.comprou,
+    loja.valor
+FROM cliente
+LEFT JOIN loja
+ON cliente.id_cliente = loja.id_cliente;
+
+4)
+USE mercado;
+
+SELECT
+    cliente.id_cliente,
+    cliente.nome,
+    cliente.idade,
+    loja.nome AS nome_loja,
+    loja.comprou,
+    loja.valor
+FROM cliente
+LEFT JOIN loja
+ON cliente.id_cliente = loja.id_cliente;
+
+5)
+SELECT
+    cliente.id_cliente,
+    cliente.nome,
+    cliente.idade,
+    loja.valor
+FROM cliente
+LEFT JOIN loja
+ON cliente.id_cliente = loja.id_cliente
+ORDER BY cliente.nome ASC;
+
+6)
+SELECT
+    cliente.nome,
+    loja.nome AS loja,
+    loja.valor
+FROM cliente
+LEFT JOIN loja
+ON cliente.id_cliente = loja.id_cliente
+ORDER BY loja.valor DESC
+LIMIT 1;
+
+7)
+SELECT
+    cliente.nome,
+    cliente.idade,
+    loja.valor
+FROM cliente
+LEFT JOIN loja
+ON cliente.id_cliente = loja.id_cliente
+ORDER BY cliente.idade DESC;
+
+
