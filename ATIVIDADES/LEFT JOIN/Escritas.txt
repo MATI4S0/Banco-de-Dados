@@ -1,0 +1,27 @@
+1) O LEFT JOIN é utilizado para relacionar duas ou mais tabelas, retornando todos os registros da tabela que está à esquerda do comando, mesmo que não existam correspondências na tabela da direita.
+
+Quando não existe correspondência, os campos da tabela da direita aparecem como NULL.
+
+2) Vantagens:
+
+    Mostra todos os registros da tabela principal.
+    Permite identificar clientes que não realizaram compras.
+    Facilita o cruzamento de informações entre tabelas.
+    Não elimina registros sem correspondência.
+
+Desvantagens:
+
+    Pode retornar valores NULL, exigindo tratamento.
+    Pode deixar consultas mais complexas quando existem muitas tabelas.
+    Pode gerar resultados duplicados quando existem vários registros relacionados.
+
+  8) LEFT JOIN:
+
+    Retorna todos os registros da tabela da esquerda.
+    Mesmo que não exista correspondência na tabela da direita.
+    Quando não existe correspondência, retorna NULL.
+
+INNER JOIN:
+
+    Retorna somente os registros que possuem correspondência nas duas tabelas.
+    Não mostra os clientes que não realizaram compras.
