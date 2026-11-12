@@ -1,1 +1,64 @@
+1)
+USE f1_campeonato_avancado;
+
+SELECT
+    p.nome AS piloto,
+    COALESCE(r.pontos, 0) AS pontos
+FROM pilotos p
+LEFT JOIN resultados_corrida r
+    ON p.id = r.piloto_id
+    AND r.gp = 'GP de Interlagos';
+
+2)
+SELECT
+    fm.nome AS fabricante,
+    COUNT(p.id) AS quantidade_pilotos
+FROM equipes e
+RIGHT JOIN fabricantes_motor fm
+    ON e.motor_id = fm.id
+LEFT JOIN pilotos p
+    ON e.id = p.equipe_id
+GROUP BY fm.id, fm.nome
+ORDER BY quantidade_pilotos DESC;
+
+3)
+SELECT
+    e.id,
+    e.nome,
+    e.motor_id
+FROM equipes e
+RIGHT JOIN fabricantes_motor fm
+    ON e.motor_id = fm.id
+WHERE fm.id IS NULL
+
+UNION
+
+SELECT
+    e.id,
+    e.nome,
+    e.motor_id
+FROM fabricantes_motor fm
+RIGHT JOIN equipes e
+    ON fm.id = e.motor_id
+WHERE fm.id IS NULL;
+
+4)
+A-
+SELECT fm.nome AS fabricante, e.nome AS equipe, p.nome AS piloto
+FROM fabricantes_motor fm
+RIGHT JOIN equipes e ON fm.id = e.motor_id
+RIGHT JOIN pilotos p ON e.id = p.equipe_id;
+
+B-
+SELECT p.nome AS piloto, r.gp, r.pontos
+FROM resultados_corrida r
+RIGHT JOIN pilotos p ON r.piloto_id = p.id
+WHERE r.gp = 'GP de Interlagos';
+
+C-
+SELECT e.nome AS equipe
+FROM pilotos p
+RIGHT JOIN equipes e ON e.id = p.equipe_id
+WHERE p.id IS NULL;
+
 
